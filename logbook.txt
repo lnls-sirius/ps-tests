@@ -1,0 +1,22 @@
+Notas:
+
+- senha do usuário fac: boo500mev
+- IP do BBB-IOC: 10.0.21.89
+- não fechar laptop de aquisição pelo labview! (se fechar, comunicar com gabriel)
+- os dados da aquisição deverão ser gravados no centaurus/Troce e acessados como
+  um recurso samba do domínio. para montar:
+  sudo mount -t cifs -o username=ximenes.resende //centaurus/Repositorio/Troca/Teste\ das\ Fontes /home/fac/troca/
+- o script de aquisição e análise é o 'lnls-ramp-test.py'
+
+
+2017-09-15
+
+- [bug] IOC travou. reiniciamos salvando logs de stdout e stderr. 
+  provavelmente exception em python.
+- [bug] o WfmIndex nos controladores estava parado em um valor arbitrário. pq? 
+  será que interrompemos o sincronismo pelo EVR ao invés do EVG ?
+- [bug] ao iniciar o BBB lê o valor 2001 do WfmIndex do controlador. 
+  após conclusão da rampa com sucesso este valor passar a ser 2000. pq da diferença?
+- enviamos ao IOC/controlador as rampas de acordo com a spec e implementadas em 
+  siriuspy.magnet.util
+
