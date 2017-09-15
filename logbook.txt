@@ -11,12 +11,16 @@ Notas:
 
 2017-09-15
 
-- [bug] IOC travou. reiniciamos salvando logs de stdout e stderr. 
+- [bug] IOC travou. reiniciamos salvando logs de stdout e stderr.
   provavelmente exception em python.
-- [bug] o WfmIndex nos controladores estava parado em um valor arbitrário. pq? 
+- [bug] o WfmIndex nos controladores estava parado em um valor arbitrário. pq?
   será que interrompemos o sincronismo pelo EVR ao invés do EVG ?
-- [bug] ao iniciar o BBB lê o valor 2001 do WfmIndex do controlador. 
+- [bug] ao iniciar o BBB lê o valor 2001 do WfmIndex do controlador.
   após conclusão da rampa com sucesso este valor passar a ser 2000. pq da diferença?
-- enviamos ao IOC/controlador as rampas de acordo com a spec e implementadas em 
+- [bug] firmware do controlador não zera WfmIndex durante boot?
+  IOC não deveria ajustar estado do controlador durante o boot.
+- [bug] Current-SP e Current-RB, quando escolhido SlowRef após MigWfm ou
+  RmpWfm deveria espelhar o CurrentRef-Mon. Mudar spec das PVs.
+- enviamos ao IOC/controlador as rampas de acordo com a spec e implementadas em
   siriuspy.magnet.util
-
+- criei repositorio ps-tests no lnls-sirius.
