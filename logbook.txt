@@ -6,7 +6,16 @@ Notas:
 - os dados da aquisição deverão ser gravados no centaurus/Troce e acessados como
   um recurso samba do domínio. para montar:
   sudo mount -t cifs -o username=ximenes.resende //centaurus/Repositorio/Troca/Teste\ das\ Fontes /home/fac/troca/
-- o script de aquisição e análise é o 'lnls-ramp-test.py'
+- o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
+
+
+2017-09-18
+
+- [bug] Problemas ao iniciar o  IOCs
+  a) ao rodar o st.cmd do timing o terminal reclama que não encontra uma biblioteca. recompilação resolveu.
+  b) o IOC do BBB não responde aos cagets.
+  c) os problemas de perda de leitura entre IOC/controlador voltaram.
+
 
 
 2017-09-15
@@ -24,3 +33,4 @@ Notas:
 - enviamos ao IOC/controlador as rampas de acordo com a spec e implementadas em
   siriuspy.magnet.util
 - criei repositorio ps-tests no lnls-sirius.
+
