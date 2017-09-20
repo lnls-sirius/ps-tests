@@ -25,6 +25,20 @@ _ref_ramp = _ref_current_3gev * generate_normalized_ramp()
 #     curve1.append(10.0/1.05 - curve1[i])
 # _ref_ramp = curve1
 
+
+def get_pwrsupply_names():
+    """Return PS names."""
+    return ('BO-01U-PS-CH',
+            'BO-01U-PS-CV',
+            'BO-03U-PS-CH',
+            'BO-03U-PS-CV',
+            )
+
+def get_reference_ramp():
+    """Return reference ramp."""
+    return _ref_ramp
+
+
 def read_data(fname=None, print_flag=True):
     """Read data from file."""
     global _sync_sig_idx
@@ -39,6 +53,21 @@ def read_data(fname=None, print_flag=True):
         print('number of signals    : {}'.format(data.shape[1]))
         print('index of sync signal : {}'.format(_sync_sig_idx))
     return data
+
+
+def plot_data(data, max_idx=None):
+    """Plot data."""
+    if max_idx is None:
+        max_idx = data.shape[0]
+    nr_sigs = data.shape[1]
+    fig, axes = _plt.subplots(nrows=nr_sigs, ncols=1)
+    axes[0].plot(data[:max_idx, 0])
+    axes[1].plot(data[:max_idx, 1])
+    axes[2].plot(data[:max_idx, 2])
+    axes[3].plot(data[:max_idx, 3])
+    if nr_sigs == 5:
+        axes[4].plot(data[:max_idx, 4])
+    _plt.show()
 
 
 def add_sync_upborder(data, sync_sig_level=_sync_sig_level):
@@ -63,21 +92,6 @@ def get_sync_signal_index(data=None):
                 idx = i
         _sync_sig_idx = idx
     return _sync_sig_idx
-
-
-def plot_data(data, max_idx=None):
-    """Plot data."""
-    if max_idx is None:
-        max_idx = data.shape[0]
-    nr_sigs = data.shape[1]
-    fig, axes = _plt.subplots(nrows=nr_sigs, ncols=1)
-    axes[0].plot(data[:max_idx, 0])
-    axes[1].plot(data[:max_idx, 1])
-    axes[2].plot(data[:max_idx, 2])
-    axes[3].plot(data[:max_idx, 3])
-    if nr_sigs == 5:
-        axes[4].plot(data[:max_idx, 4])
-    _plt.show()
 
 
 def get_split_ramps_indices(data):
@@ -106,10 +120,24 @@ def get_split_ramps_indices(data):
     return ramps
 
 
-def plot_ramps(data, ramp_set, sig_idx):
-    """Plot ramps for a specified signal and reference."""
-    for ramp in ramp_set:
-        _plt.plot(data[min(ramp):max(ramp)+1, sig_idx], 'k.')
-    d = [i - ramp_set[0][0] for i in ramp_set[0]]
-    _plt.plot(d, _ref_ramp, 'r.')
+def plot_ramp_repeatibility(data, ramp_set):
+    """Plot ramps repeatibility and comparw with reference."""
+    ref = [i - ramp_set[0][0] for i in ramp_set[0]]
+    f, (ax0, ax1, ax2) = _plt.subplots(3, sharex=True, sharey=True)
+    psnames = get_pwrsupply_names()
+    ylabels = ['PS1 Voltage [V]',
+               'PS2 Voltage [V]',
+               'PS3 Voltage [V]']
+    axes = [ax0, ax1, ax2]
+    for sig_idx in range(3):
+        for ramp in ramp_set:
+            datum = data[min(ramp):max(ramp)+1, sig_idx]
+            axes[sig_idx].plot(datum, 'k.')
+        axes[sig_idx].plot(ref, _ref_ramp, 'r.')
+        axes[sig_idx].grid(True)
+        axes[sig_idx].set_ylabel('{} Current [A]'.format(psnames[sig_idx]))
+    ax0.set_title(('Ramp repeatibility ({} black) and comparison '
+                   'with reference (1 red)').format(len(ramp_set)))
+    _plt.xlabel('Sample Index')
     _plt.show()
+    return ref, _ref_ramp
