@@ -1,4 +1,4 @@
-Notas:
+# Notas
 
 - senha do usuário fac: boo500mev
 - não fechar laptop de aquisição pelo labview! (se fechar, comunicar com gabriel)
@@ -13,40 +13,31 @@ Notas:
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 
 
-2017-09-20
+# 2017-09-20
 
-
-Análise das Medidas
-==================
-
-REPETIBILIDADE DA RAMPA (para cada par fonte|imã)
+## REPETIBILIDADE DA RAMPA (para cada par fonte|imã)
 -------------------------------------------------------
 
-dados: data/test1_17-09-19_1459.txt
-script: analysis/2017-09-20/analysis.ipynb
+- dados: data/test1_17-09-19_1459.txt
+- script: analysis/2017-09-20/analysis.ipynb
 
-a) rampa completa
+1. Rampa completa
 
 - [Figure_1.png]
 
-b) delay entre valor de referẽncia e valor implementado nas corretoras.
+2. Delay entre valor de referẽncia e valor implementado nas corretoras.
 
 - na região de aceleração do feixe, há uma defasagem temporal de 33 pontos de
   aquisição (Figure_2.png), ou seja, de 660 us. Esta defasagem pode aparentemente
   ser corrigida também através de um aumento dos valores de referẽncia da ordem
   de 22 mA.
 
-c) plateau em alta corrente
+3. Plateau em alta corrente
 
-- há uma discrepância de 25 mA entre o valor de referência (10A) e o valor atingido pelas
-  fontes, que é da ordem de 9.975A. (Figure_3.png)
+- há uma discrepância de 25 mA entre o valor de referência (10A) e o valor atingido pelas fontes, que é da ordem de 9.975A. (Figure_3.png)
+- parece haver um 'drift' quase linear dos valores de corrente na região em que a referência é constante (10A) de duração de 7 ms 9Figure_4.png). Este drift neste Intervalo temporal é compatível com a constante de tempo dos imãs e ajustes do PI do controlador?
 
-- parece haver um 'drift' quase linear dos valores de corrente na região em
-  que a referência é constante (10A) de duração de 7 ms 9Figure_4.png).
-  Este drift neste Intervalo temporal é compatível com a constante de tempo dos
-  imãs e ajustes do PI do controlador?
-
-  d) observações:
+  4. Observações:
 
   - talvez para cada par fonte|imã deveríamos 'calibrar' a curva nominal de exci
   tação antes de utilizá-la na rampa, de forma a garantir que 1) fosse o mais linear
@@ -54,19 +45,15 @@ c) plateau em alta corrente
   em relação ao pulso de início de rampa.
 
 
-
-
-
-
-2017-09-18
+# 2017-09-18
 
 - [bug] Problemas ao iniciar o  IOCs
-  a) ao rodar o st.cmd do timing o terminal reclama que não encontra uma biblioteca. recompilação resolveu.
-  b) o IOC do BBB não responde aos cagets.
-  c) os problemas de perda de leitura entre IOC/controlador voltaram.
+  1. ao rodar o st.cmd do timing o terminal reclama que não encontra uma biblioteca. recompilação resolveu.
+  2. o IOC do BBB não responde aos cagets.
+  3. os problemas de perda de leitura entre IOC/controlador voltaram.
 
 
-2017-09-15
+# 2017-09-15
 
 - [bug] IOC travou. reiniciamos salvando logs de stdout e stderr.
   provavelmente exception em python.
