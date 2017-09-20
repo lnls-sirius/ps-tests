@@ -1,6 +1,6 @@
 # Notas
 
-- senha do usuário fac: boo500mev
+- senha do usuário fac: a mesma que da sala de controle.
 - não fechar laptop de aquisição pelo labview! (se fechar, comunicar com gabriel)
 - os dados da aquisição deverão ser gravados no centaurus/Troce e acessados como
   um recurso samba do domínio. para montar:
@@ -9,7 +9,7 @@
 - para rodar o IOC de timing:
   cd /home/fac/Desktop/lnls105-controle/sirius-timing-ioc; make clean; make uninstall; make install
   cd iocBoot/ioctiming/; ./st.cmd
-- IOC das fontes é iniciado automaticamente com o BBB (root@10.0.21.89 senha root)
+- IOC das fontes é iniciado automaticamente com o BBB (root@10.0.21.89)
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 
 
@@ -37,12 +37,9 @@
 - há uma discrepância de 25 mA entre o valor de referência (10A) e o valor atingido pelas fontes, que é da ordem de 9.975A. (Figure_3.png)
 - parece haver um 'drift' quase linear dos valores de corrente na região em que a referência é constante (10A) de duração de 7 ms 9Figure_4.png). Este drift neste Intervalo temporal é compatível com a constante de tempo dos imãs e ajustes do PI do controlador?
 
-  4. Observações:
+4. Observações:
 
-  - talvez para cada par fonte|imã deveríamos 'calibrar' a curva nominal de exci
-  tação antes de utilizá-la na rampa, de forma a garantir que 1) fosse o mais linear
-  possível durante o intervalo com feixe, 2) fossem o mais sincronizadas possível
-  em relação ao pulso de início de rampa.
+- talvez para cada par fonte|imã deveríamos 'calibrar' a curva nominal de excitação antes de utilizá-la na rampa, de forma a garantir que 1) fosse o mais linear possível durante o intervalo com feixe, 2) fossem o mais sincronizadas possível em relação ao pulso de início de rampa.
 
 
 # 2017-09-18
