@@ -13,17 +13,17 @@
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 
 
-# 2017-09-20
+# 2017-09-20 (Análises)
 
 ## REPETIBILIDADE DA RAMPA (para cada par fonte|imã)
 -------------------------------------------------------
 
-- dados: data/test1_17-09-19_1459.txt
-- script: analysis/2017-09-20/analysis.ipynb
+> dados: data/test1_17-09-19_1459.txt
+> script: analysis/2017-09-20/analysis.ipynb
 
 ### Rampa completa
 
-- [Figure_1.png]
+- [Figure_1.png](analysis/2017-09-20/Figure_1.png)
 
 ### Delay entre valor de referẽncia e valor implementado nas corretoras.
 
