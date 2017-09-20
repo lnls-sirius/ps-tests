@@ -20,13 +20,13 @@
 
 > dados: data/test1_17-09-19_1459.txt
 
-> script: analysis/2017-09-20/analysis.ipynb
+> script: [analysis.ipynb](analysis/2017-09-20/analysis.ipynb)
 
 ### Rampa completa
 
 - [Figure_1.png](analysis/2017-09-20/Figure_1.png)
 
-### Delay entre valor de referẽncia e valor implementado nas corretoras.
+### Delay entre valor de referência e valor implementado nas corretoras.
 
 - na região de aceleração do feixe, há uma defasagem temporal de 33 pontos de
   aquisição ([Figure_2.png](analysis/2017-09-20/Figure_2.png)), ou seja, de 660 us. Esta defasagem pode aparentemente
