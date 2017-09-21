@@ -24,10 +24,10 @@
 
 ### Introdução
 
-- No setup experimental atual, no mesmo bastidor de fontes, existem quatro fontes: BO-01U-PS-CH, BO-01U-PS-CV, BO-03U-PS-CH e BO-03U-PS-CV. Para cada uma desta fontes existe um sinal de corrente que é entregue à corretora associada e que pode ser medido em DCCTs independentes e digitalizados. No bastidor existem apenas dois controladores ARM quem lêem a comunicação com o IOC rodando no black beaggle bone (BBB). O primeiro controlador repassa os mesmos ajustes de setpoint às fontes  BO-01U-PS-CH e BO-01U-PS-CV enquanto que o segundo controlador o faz para as fontes BO-03U-PS-CH e BO-03U-PS-CV. Os loops de controle das quatro correntes são, no entanto, independentes. (ou apenas as leituras das correntes que são usadas no loop são independentes?)
+- No setup experimental atual, no mesmo bastidor de fontes, existem quatro fontes: BO-01U-PS-CH, BO-01U-PS-CV, BO-03U-PS-CH e BO-03U-PS-CV. Para cada uma desta fontes existe um sinal de corrente que é entregue à corretora associada e que pode ser medido em DCCTs independentes e digitalizados. No bastidor existem apenas dois controladores ARM quem lêem a comunicação com o IOC rodando no black beagle bone (BBB). O primeiro controlador repassa os mesmos ajustes de setpoint às fontes  BO-01U-PS-CH e BO-01U-PS-CV enquanto que o segundo controlador o faz para as fontes BO-03U-PS-CH e BO-03U-PS-CV. Os loops de controle das quatro correntes são, no entanto, independentes. (ou apenas as leituras das correntes que são usadas no loop são independentes?)
 - Os sinais das correntes de cada par fonte-imã foram digitalizados e salvos em arquivos. Os canais 0,1,2 do digitalizador correspondem respectivamente às correntes das fontes BO-01U-PS-CH, BO-01U-PS-CV e BO-03U-PS-CH.
 - O sinal de sincronismo, como gerado pela eletrônica adicional do BBB que transforma pulsos óticos em elétricos, foi digitalizado no quarto canal do digitalizador, aquele de índice 3.
-- A função 'add_sync_upborder' no modulo [analysis.py](ps_ramp_tests/analysis.py) identifica as bordas de subida do sinal de sincronismo e uma coluna que marca quando as referências das correntes são atualizadas é adicionada aos dados. Esta última coluna é usada na identificação do início e fim das rampas.
+- A função 'add_sync_upborder' no módulo [analysis.py](ps_ramp_tests/analysis.py) identifica as bordas de subida do sinal de sincronismo e uma coluna que marca quando as referências das correntes são atualizadas é adicionada aos dados. Esta última coluna é usada na identificação do início e fim das rampas.
 
 
 ### Rampa completa
@@ -39,12 +39,12 @@
 - na região de aceleração do feixe, há uma defasagem temporal de 33 pontos de
   aquisição ([Figure_2.png](analysis/2017-09-20/Figure_2.png)), ou seja, de 660 us. Esta defasagem pode aparentemente
   ser corrigida também através de um aumento dos valores de referẽncia da ordem
-  de 22 mA.
+  de 22 mA. **gabriel**: *ele diz que o termo 'delay' de 660 us não é exatamente o delay entre o sincronismo gerar o trigger e o DSP conseguir atingir o valor de referência, intervalo este que deve ser bem menor que o intervalo citado. Ele atribui esta diferença ao fato de que provavelmente há erro de offsets e/ou ganhos na leitura da corrente de saída e que vão ser investigados e corrigidos eventualmente.*
 
 ### Plateau em alta corrente
 
-- há uma discrepância de 25 mA entre o valor de referência (10A) e o valor atingido pelas fontes, que é da ordem de 9.975A. ([Figure_3.png](analysis/2017-09-20/Figure_3.png))
-- parece haver um 'drift' quase linear dos valores de corrente na região em que a referência é constante (10A) de duração de 7 ms ([Figure_4.png](analysis/2017-09-20/Figure_4.png)). Este drift neste Intervalo temporal é compatível com a constante de tempo dos imãs e ajustes do PI do controlador?
+- há uma discrepância de 25 mA entre o valor de referência (10A) e o valor atingido pelas fontes, que é da ordem de 9.975A.  ([Figure_3.png](analysis/2017-09-20/Figure_3.png)). **cléber**: *aqui também há calibração de ganho que pode ser realizado para diminuir a discrepância.*
+- parece haver um 'drift' quase linear dos valores de corrente na região em que a referência é constante (10A) de duração de 7 ms ([Figure_4.png](analysis/2017-09-20/Figure_4.png)). Este drift neste intervalo temporal é compatível com a constante de tempo dos imãs e ajustes do PI do controlador? **cléber**: *ele suspeita de que este drift seja de origem térmica. enviou um [gráfico](analysis/2017-09-20/PosBurninCorr10.png) mostrando que a estabilização térmica acontece*. **gabriel**: *desconfia de que esta não seja a explicação correta do drift.*
 
 ### Dispersão entre rampas de uma mesma fonte-imã
 
@@ -53,7 +53,7 @@
 
 ### Erro de tracking linear de uma mesma fonte-imã
 
-- Em seguida analisamos o erro de tracking, expresso em ppm, em relação a uma rampa linear fitada dos dados na região de interesse, entre 150 MeV e 3 GeV, quando há feixe estocado no booster.
+- Em seguida analisamos o erro de tracking, expresso em ppm, em relação a uma rampa linear ajustada dos dados na região de interesse, entre 150 MeV e 3 GeV (quando há feixe estocado no booster).
 - (pendente...)
 
 ### Dispersão entre fontes-imãs
@@ -66,7 +66,7 @@
 
 ### Observações:
 
-- talvez para cada par fonte|imã deveríamos 'calibrar' a curva nominal de excitação antes de utilizá-la na rampa, de forma a garantir que 1) fosse o mais linear possível durante o intervalo com feixe, 2) fossem o mais sincronizadas possível em relação ao pulso de início de rampa.
+- talvez para cada par fonte|imã deveríamos 'calibrar' a curva nominal de excitação antes de utilizá-la na rampa, de forma a garantir que 1) fosse o mais linear possível durante o intervalo com feixe, 2) fossem o mais sincronizadas possível em relação ao pulso de início de rampa. **gabriel**: *comentou que acha mais apropriado tentar antes corrigir as várias questões acima calibrando melhor os parâmetros e inputs do controle das fontes.*
 
 # 2017-09-18
 
