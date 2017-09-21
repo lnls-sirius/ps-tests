@@ -1,4 +1,4 @@
-# Sirius Power Supply Tests Logbook
+# Logbook - Testes de Fontes do Sirius
 
 - senha do usuário fac: a mesma que da sala de controle.
 - não fechar laptop de aquisição pelo labview! (se fechar, comunicar com gabriel)
@@ -13,14 +13,19 @@
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 
 
-# 2017-09-20 (Análises)
+# 2017-09-20
 
-## REPETIBILIDADE DA RAMPA (para cada par fonte|imã)
+## REPETIBILIDADE DA RAMPA (para cada par fonte-imã)
 -------------------------------------------------------
 
 > dados: data/test1_17-09-19_1459.txt
 
 > script: [analysis.ipynb](analysis/2017-09-20/analysis.ipynb)
+
+### Introdução
+
+O sinal de sincronismo, como gerado pela eletrônica adicional do BBB que transforma pulsos óticos em elétricos, foi digitalizado no quarto canal do digitalizador, aquele de índice 3. A função 'add_sync_upborder' no modulo analysis.py identifica as bordas de subida do sinal de sincronismo e uma coluna que marca quando as referências das correntes são atualizadas é adicionada aos dados. Esta última coluna é usada na identificação do início e fim das rampas.
+
 
 ### Rampa completa
 
@@ -38,10 +43,27 @@
 - há uma discrepância de 25 mA entre o valor de referência (10A) e o valor atingido pelas fontes, que é da ordem de 9.975A. ([Figure_3.png](analysis/2017-09-20/Figure_3.png))
 - parece haver um 'drift' quase linear dos valores de corrente na região em que a referência é constante (10A) de duração de 7 ms ([Figure_4.png](analysis/2017-09-20/Figure_4.png)). Este drift neste Intervalo temporal é compatível com a constante de tempo dos imãs e ajustes do PI do controlador?
 
+### Dispersão entre rampas de uma mesma fonte-imã
+
+- Na região de subida da rampa, onde haverá feixe, a dispersão dos valores de corrente entre rampas é da ordem de 50 ppm, no sentido de desvio padrão, e de aproximadamente 400 ppm pico-a-pico. Estes valores são os mesmos, independentemente da fonte-imã. ([Figure_5.png](analysis/2017-09-20/Figure_5.png))
+- vê-se que a dispersão é tanto maior quanto maior a derivada temporal do sinal de referência, como pode por ver pelos dois regimes de rampa com dispersões distintas: o de subida e o de descida.
+
+### Erro de tracking linear de uma mesma fonte-imã
+
+- Em seguida analisamos o erro de tracking, expresso em ppm, em relação a uma rampa linear fitada dos dados na região de interesse, entre 150 MeV e 3 GeV, quando há feixe estocado no booster.
+- (pendente...)
+
+### Dispersão entre fontes-imãs
+
+- (pendente...)
+
+### Erro de tracking linear entre fontes-imãs.
+
+- (pendente...)
+
 ### Observações:
 
 - talvez para cada par fonte|imã deveríamos 'calibrar' a curva nominal de excitação antes de utilizá-la na rampa, de forma a garantir que 1) fosse o mais linear possível durante o intervalo com feixe, 2) fossem o mais sincronizadas possível em relação ao pulso de início de rampa.
-
 
 # 2017-09-18
 
@@ -54,10 +76,10 @@
 # 2017-09-15
 
 - [bug] IOC travou. reiniciamos salvando logs de stdout e stderr.
-  provavelmente exception em python.
+  provavelmente exception em python. (entendido!)
 - [bug] o WfmIndex nos controladores estava parado em um valor arbitrário. pq?
-  será que interrompemos o sincronismo pelo EVR ao invés do EVG ?
-- [bug] ao iniciar o BBB lê o valor 2001 do WfmIndex do controlador.
+  será que interrompemos o sincronismo pelo EVR ao invés do EVG ? (entendido!)
+- [bug?] ao iniciar o BBB lê o valor 2001 do WfmIndex do controlador.
   após conclusão da rampa com sucesso este valor passar a ser 2000. pq da diferença?
 - [bug] firmware do controlador não zera WfmIndex durante boot?
   IOC não deveria ajustar estado do controlador durante o boot.

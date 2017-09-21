@@ -34,6 +34,7 @@ def get_pwrsupply_names():
             'BO-03U-PS-CV',
             )
 
+
 def get_reference_ramp():
     """Return reference ramp."""
     return _ref_ramp
@@ -125,9 +126,6 @@ def plot_ramp_repeatibility(data, ramp_set):
     ref = [i - ramp_set[0][0] for i in ramp_set[0]]
     f, (ax0, ax1, ax2) = _plt.subplots(3, sharex=True, sharey=True)
     psnames = get_pwrsupply_names()
-    ylabels = ['PS1 Voltage [V]',
-               'PS2 Voltage [V]',
-               'PS3 Voltage [V]']
     axes = [ax0, ax1, ax2]
     for sig_idx in range(3):
         for ramp in ramp_set:
@@ -141,3 +139,60 @@ def plot_ramp_repeatibility(data, ramp_set):
     _plt.xlabel('Sample Index')
     _plt.show()
     return ref, _ref_ramp
+
+
+def plot_ramp_dispersion(data, ramp_set):
+    """Plot ramps repeatibility and comparw with reference."""
+    ppm = _max_current/1e6
+    max_size = None
+    for ramp in ramp_set:
+        x = list(range(min(ramp_set[0]), max(ramp_set[0])+1))
+        max_size = len(x) if max_size is None else min(max_size, len(x))
+    std_ppm = _np.zeros((max_size, 3))
+    avg_ppm = _np.zeros((max_size, 3))
+    max_ppm = _np.zeros((max_size, 3))
+    min_ppm = _np.zeros((max_size, 3))
+    for sig_idx in range(3):
+        stat = _np.zeros((len(ramp_set), max_size))
+        for i, ramp in enumerate(ramp_set):
+            x = list(range(min(ramp_set[0]), max(ramp_set[0])+1))
+            y = data[min(ramp):max(ramp)+1, sig_idx]
+            stat[i, :] = y[:max_size]
+        std_ppm[:, sig_idx] = _np.std(stat, axis=0) / ppm
+        avg_ppm[:, sig_idx] = _np.mean(stat, axis=0) / ppm
+        max_ppm[:, sig_idx] = (_np.max(stat, axis=0) -
+                               _np.mean(stat, axis=0)) / ppm
+        min_ppm[:, sig_idx] = (_np.min(stat, axis=0) -
+                               _np.mean(stat, axis=0)) / ppm
+    # plot data
+    f, ((ax0, ax1), (ax2, ax3), (ax4, ax5)) = \
+        _plt.subplots(3, 2, sharex=True, sharey=True)
+    psnames = get_pwrsupply_names()
+    ax0.plot(std_ppm[:, 0], 'b.')
+    ax2.plot(std_ppm[:, 1], 'b.')
+    ax4.plot(std_ppm[:, 2], 'b.')
+    ax1.plot(max_ppm[:, 0], 'b.')
+    ax1.plot(min_ppm[:, 0], 'b.')
+    ax3.plot(max_ppm[:, 1], 'b.')
+    ax3.plot(min_ppm[:, 1], 'b.')
+    ax5.plot(max_ppm[:, 2], 'b.')
+    ax5.plot(min_ppm[:, 2], 'b.')
+    ax0.grid(True)
+    ax1.grid(True)
+    ax2.grid(True)
+    ax3.grid(True)
+    ax4.grid(True)
+    ax5.grid(True)
+    ax0.set_ylabel('{} [ppm]'.format(psnames[0]))
+    ax2.set_ylabel('{} [ppm]'.format(psnames[1]))
+    ax4.set_ylabel('{} [ppm]'.format(psnames[2]))
+    ax1.set_ylabel('{} [ppm]'.format(psnames[0]))
+    ax3.set_ylabel('{} [ppm]'.format(psnames[1]))
+    ax5.set_ylabel('{} [ppm]'.format(psnames[2]))
+    ax0.set_title('Disp. (std) - {} ramps'.format(len(ramp_set)))
+    ax1.set_title('Disp. (MinMax) - {} ramps'.format(len(ramp_set)))
+    ax4.set_xlabel('Sample Index')
+    ax5.set_xlabel('Sample Index')
+    _plt.show()
+
+    return avg_ppm, std_ppm, max_ppm, min_ppm
