@@ -15,8 +15,8 @@
 
 # 2017-09-20
 
-## REPETIBILIDADE DA RAMPA (para cada par fonte-imã)
--------------------------------------------------------
+## REPETIBILIDADE DA RAMPA
+--------------------------
 
 > dados: data/test1_17-09-19_1459.txt
 
