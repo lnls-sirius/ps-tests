@@ -24,7 +24,10 @@
 
 ### Introdução
 
-O sinal de sincronismo, como gerado pela eletrônica adicional do BBB que transforma pulsos óticos em elétricos, foi digitalizado no quarto canal do digitalizador, aquele de índice 3. A função 'add_sync_upborder' no modulo analysis.py identifica as bordas de subida do sinal de sincronismo e uma coluna que marca quando as referências das correntes são atualizadas é adicionada aos dados. Esta última coluna é usada na identificação do início e fim das rampas.
+- No setup experimental atual, no mesmo bastidor de fontes, existem quatro fontes: BO-01U-PS-CH, BO-01U-PS-CV, BO-03U-PS-CH e BO-03U-PS-CV. Para cada uma desta fontes existe um sinal de corrente que é entregue à corretora associada e que pode ser medido em DCCTs independentes e digitalizados. No bastidor existem apenas dois controladores ARM quem lêem a comunicação com o IOC rodando no black beaggle bone (BBB). O primeiro controlador repassa os mesmos ajustes de setpoint às fontes  BO-01U-PS-CH e BO-01U-PS-CV enquanto que o segundo controlador o faz para as fontes BO-03U-PS-CH e BO-03U-PS-CV. Os loops de controle das quatro correntes são, no entanto, independentes. (ou apenas as leituras das correntes que são usadas no loop são independentes?)
+- Os sinais das correntes de cada par fonte-imã foram digitalizados e salvos em arquivos. Os canais 0,1,2 do digitalizador correspondem respectivamente às correntes das fontes BO-01U-PS-CH, BO-01U-PS-CV e BO-03U-PS-CH.
+- O sinal de sincronismo, como gerado pela eletrônica adicional do BBB que transforma pulsos óticos em elétricos, foi digitalizado no quarto canal do digitalizador, aquele de índice 3.
+- A função 'add_sync_upborder' no modulo [analysis.py](ps_ramp_tests/analysis.py) identifica as bordas de subida do sinal de sincronismo e uma coluna que marca quando as referências das correntes são atualizadas é adicionada aos dados. Esta última coluna é usada na identificação do início e fim das rampas.
 
 
 ### Rampa completa
