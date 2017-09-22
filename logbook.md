@@ -54,7 +54,8 @@
 ### Erro de tracking linear de uma mesma fonte-imã
 
 - Em seguida analisamos o erro de tracking, expresso em ppm, em relação a uma rampa linear ajustada dos dados na região de interesse, entre 150 MeV e 3 GeV (quando há feixe estocado no booster).
-- (pendente...)
+- Nota-se pela [Figure_6.png](analysis/2017-09-20/Figure_6.png) que o erro de tracking linear de cada fonte, definido como a diferença da leitura de uma dada rampa em relação à melhor reta que ajusta a leitura da primeira rampa na região com feixe (entre ~0.77A e ~9.52 no caso dos testes), tem duas escalas de variação: a mais rápida, que é dada pelo intervalo entre sinais de sincronismo, corresponde a uma oscilação com amplitude da ordem +/- 200 ppm ([Figure_7.png](analysis/2017-09-20/Figure_7.png)). A segunda, bem mais lenta,
+é da ordem +/- 500 ppm e corresponde a um erro polinomial de ordem superior..
 
 ### Dispersão entre fontes-imãs
 

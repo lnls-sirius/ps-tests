@@ -148,8 +148,8 @@ def plot_ramp_dispersion(data, ramp_set):
     for ramp in ramp_set:
         x = list(range(min(ramp_set[0]), max(ramp_set[0])+1))
         max_size = len(x) if max_size is None else min(max_size, len(x))
+    avg = _np.zeros((max_size, 3))
     std_ppm = _np.zeros((max_size, 3))
-    avg_ppm = _np.zeros((max_size, 3))
     max_ppm = _np.zeros((max_size, 3))
     min_ppm = _np.zeros((max_size, 3))
     for sig_idx in range(3):
@@ -158,8 +158,8 @@ def plot_ramp_dispersion(data, ramp_set):
             x = list(range(min(ramp_set[0]), max(ramp_set[0])+1))
             y = data[min(ramp):max(ramp)+1, sig_idx]
             stat[i, :] = y[:max_size]
+        avg[:, sig_idx] = _np.mean(stat, axis=0)
         std_ppm[:, sig_idx] = _np.std(stat, axis=0) / ppm
-        avg_ppm[:, sig_idx] = _np.mean(stat, axis=0) / ppm
         max_ppm[:, sig_idx] = (_np.max(stat, axis=0) -
                                _np.mean(stat, axis=0)) / ppm
         min_ppm[:, sig_idx] = (_np.min(stat, axis=0) -
@@ -195,4 +195,40 @@ def plot_ramp_dispersion(data, ramp_set):
     ax5.set_xlabel('Sample Index')
     _plt.show()
 
-    return avg_ppm, std_ppm, max_ppm, min_ppm
+    return max_size, avg, std_ppm, max_ppm, min_ppm
+
+def plot_linear_tracking(data, ramp_set, max_size, avg):
+    """Plot linear tracking."""
+
+    d = avg[:, 0]
+    min_idx = _np.where(d >= 10/1.05/20.0)[0][0]
+    max_idx = _np.where(d >= 10/1.05)[0][0]
+    lims = list(range(min_idx, max_idx))
+    x = _np.array(list(range(min(ramp_set[0]), max(ramp_set[0])+1)))
+    x = x[lims]
+    ppm = _max_current/1e6
+
+    f, axes = _plt.subplots(3, 2, sharex=True, sharey=False)
+    ((ax0, ax1), (ax2, ax3), (ax4, ax5)) = axes
+    psnames = get_pwrsupply_names()
+
+    for sig_idx in range(3):
+        y = avg[lims, sig_idx]
+        pfit = _np.polyfit(x, y, 1)
+        yfit = _np.polyval(pfit, x)
+        for i, ramp in enumerate(ramp_set):
+            y = data[min(ramp):max(ramp)+1, sig_idx]
+            y = y[lims]
+            diff_ppm = (y-yfit)/ppm
+            axes[sig_idx][1].plot(x, diff_ppm, 'k.')
+            axes[sig_idx][0].plot(x, y, 'k.')
+        axes[sig_idx][0].set_ylabel('{}'.format(psnames[sig_idx]))
+        #axes[sig_idx][1].set_ylabel('{}'.format(psnames[sig_idx]))
+        axes[sig_idx][0].plot(x, yfit, 'r')
+        axes[sig_idx][0].grid(True)
+        axes[sig_idx][1].grid(True)
+    axes[-1][0].set_xlabel('Sample Index')
+    axes[-1][1].set_xlabel('Sample Index')
+    axes[0][0].set_title('Ramp current [A]')
+    axes[0][1].set_title('Tracking error [ppm]')
+    _plt.show()
