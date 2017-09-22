@@ -60,7 +60,7 @@
 ### Erro de tracking linear entre fontes-imãs.
 
 - Em seguida consideramos o erro de tracking linear levando em conta as várias fontes. Este erro foi definido tomando-se a diferença dos valores medidas das correntes de rampa (3 fontes, 19 rampas cada) com relação à melhor reta ajustada a todos os pontos no intervalo.
-- pela ([Figure_8.png](analysis/2017-09-20/Figure_8.png)) vê-se que a dispersão entre fontes não aumenta de forma significativa a dispersão de +/- 500 ppm que já existe devido ao comportamento não linear das correntes no intervalo de interesse.
+- pela ([Figure_8.png](analysis/2017-09-20/Figure_8.png)) vê-se que a dispersão entre fontes não aumenta de forma significativa a dispersão de +/- 500 ppm que já existe devido ao comportamento não linear das correntes no intervalo de interesse. Na ([Figure_9.png](analysis/2017-09-20/Figure_9.png)), que é uma ampliação da anterior na região central da região de interesse da rampa, os dados das trẽs fontes já podem ser distinguidos e suas separações (~ 100 ppm) facilmente visualizadas.
 
 
 ### Observações:
