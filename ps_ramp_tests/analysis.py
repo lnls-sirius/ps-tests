@@ -146,7 +146,7 @@ def plot_ramp_dispersion(data, ramp_set):
     ppm = _max_current/1e6
     max_size = None
     for ramp in ramp_set:
-        x = list(range(min(ramp_set[0]), max(ramp_set[0])+1))
+        x = list(range(min(ramp), max(ramp)+1))
         max_size = len(x) if max_size is None else min(max_size, len(x))
     avg = _np.zeros((max_size, 3))
     std_ppm = _np.zeros((max_size, 3))

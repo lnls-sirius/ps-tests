@@ -13,6 +13,18 @@
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 
 
+# 2017-09-22
+
+## REPETIBILIDADE DAS medidas
+-----------------------------
+
+> dados: data/test2_17-09-19_1501.txt
+
+> dados: data/test3_17-09-19_1502.txt
+
+> script: [analysis.ipynb](analysis/2017-09-20/analysis.ipynb)
+
+
 # 2017-09-20
 
 ## REPETIBILIDADE DA RAMPA
