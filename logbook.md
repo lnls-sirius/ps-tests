@@ -55,19 +55,17 @@
 
 - Em seguida analisamos o erro de tracking, expresso em ppm, em relação a uma rampa linear ajustada dos dados na região de interesse, entre 150 MeV e 3 GeV (quando há feixe estocado no booster).
 - Nota-se pela [Figure_6.png](analysis/2017-09-20/Figure_6.png) que o erro de tracking linear de cada fonte, definido como a diferença da leitura de uma dada rampa em relação à melhor reta que ajusta a leitura da primeira rampa na região com feixe (entre ~0.77A e ~9.52 no caso dos testes), tem duas escalas de variação: a mais rápida, que é dada pelo intervalo entre sinais de sincronismo, corresponde a uma oscilação com amplitude da ordem +/- 200 ppm ([Figure_7.png](analysis/2017-09-20/Figure_7.png)). A segunda, bem mais lenta,
-é da ordem +/- 500 ppm e corresponde a um erro polinomial de ordem superior..
-
-### Dispersão entre fontes-imãs
-
-- (pendente...)
+é da ordem +/- 500 ppm e corresponde a um erro polinomial de ordem superior.
 
 ### Erro de tracking linear entre fontes-imãs.
 
-- (pendente...)
+- Em seguida consideramos o erro de tracking linear levando em conta as várias fontes. Este erro foi definido tomando-se a diferença dos valores medidas das correntes de rampa (3 fontes, 19 rampas cada) com relação à melhor reta ajustada a todos os pontos no intervalo.
+- pela ([Figure_8.png](analysis/2017-09-20/Figure_8.png)) vê-se que a dispersão entre fontes não aumenta de forma significativa a dispersão de +/- 500 ppm que já existe devido ao comportamento não linear das correntes no intervalo de interesse.
+
 
 ### Observações:
 
-- talvez para cada par fonte|imã deveríamos 'calibrar' a curva nominal de excitação antes de utilizá-la na rampa, de forma a garantir que 1) fosse o mais linear possível durante o intervalo com feixe, 2) fossem o mais sincronizadas possível em relação ao pulso de início de rampa. **gabriel**: *comentou que acha mais apropriado tentar antes corrigir as várias questões acima calibrando melhor os parâmetros e inputs do controle das fontes.*
+- Erros de tracking linear com escala lenta, do tipo do observado nas medidas com as corretoras do booster (+/- 500 ppm) podem ser mitigados adaptando-se a rampa de referência. Já os erros de escala rápida (+/- 200 ppm) deveriam ser corrigidos no controle da fonte, quer seja através de ajustes do PI, quer seja através de filtros adicionais. **gabriel**: *comentou que acha mais apropriado tentar antes corrigir as várias questões acima calibrando melhor os parâmetros e inputs do controle das fontes.*
 
 # 2017-09-18
 

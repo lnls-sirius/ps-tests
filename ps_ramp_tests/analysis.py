@@ -232,3 +232,29 @@ def plot_linear_tracking(data, ramp_set, max_size, avg):
     axes[0][0].set_title('Ramp current [A]')
     axes[0][1].set_title('Tracking error [ppm]')
     _plt.show()
+
+def plot_linear_tracking_amongst_ps(data, ramp_set, max_size, avg):
+    """Plot linear tracking."""
+
+    d = avg[:, 0]
+    min_idx = _np.where(d >= 10/1.05/20.0)[0][0]
+    max_idx = _np.where(d >= 10/1.05)[0][0]
+    lims = list(range(min_idx, max_idx))
+    x = _np.array(list(range(min(ramp_set[0]), max(ramp_set[0])+1)))
+    x = x[lims]
+    ppm = _max_current/1e6
+
+    y = (avg[lims, 0]+avg[lims, 1]+avg[lims, 2])/3.0
+    pfit = _np.polyfit(x, y, 1)
+    yfit = _np.polyval(pfit, x)
+    for sig_idx in range(3):
+        for i, ramp in enumerate(ramp_set):
+            y = data[min(ramp):max(ramp)+1, sig_idx]
+            y = y[lims]
+            diff_ppm = (y-yfit)/ppm
+            _plt.plot(x, diff_ppm, 'k.')
+    _plt.title('Tracking error amongst PS [ppm]')
+    _plt.xlabel('Sample Index')
+    _plt.ylabel('Error [ppm]')
+    _plt.grid(True)
+    _plt.show()
