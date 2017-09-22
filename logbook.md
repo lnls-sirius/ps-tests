@@ -44,7 +44,7 @@
 ### Plateau em alta corrente
 
 - há uma discrepância de 25 mA entre o valor de referência (10A) e o valor atingido pelas fontes, que é da ordem de 9.975A.  ([Figure_3.png](analysis/2017-09-20/Figure_3.png)). **cléber**: *aqui também há calibração de ganho que pode ser realizado para diminuir a discrepância.*
-- parece haver um 'drift' quase linear dos valores de corrente na região em que a referência é constante (10A) de duração de 7 ms ([Figure_4.png](analysis/2017-09-20/Figure_4.png)). Este drift neste intervalo temporal é compatível com a constante de tempo dos imãs e ajustes do PI do controlador? **cléber**: *ele suspeita de que este drift seja de origem térmica. enviou um [gráfico](analysis/2017-09-20/PosBurninCorr10.png) mostrando que a estabilização térmica acontece*. **gabriel**: *desconfia de que esta não seja a explicação correta do drift.*
+- parece haver um 'drift' quase linear dos valores de corrente na região em que a referência é constante (10A) de duração de 7 ms ([Figure_4.png](analysis/2017-09-20/Figure_4.png)). Este drift neste intervalo temporal é compatível com a constante de tempo dos imãs e ajustes do PI do controlador? **cléber**: *ele suspeita de que este drift seja de origem térmica. enviou um [gráfico](analysis/2017-09-20/PosBurninCorr10.png) mostrando que a estabilização térmica acontece*. **gabriel**: *desconfia de que esta não seja a explicação correta do drift. acha que é devido ao ajuste do PI.*
 
 ### Dispersão entre rampas de uma mesma fonte-imã
 
@@ -79,15 +79,14 @@
 # 2017-09-15
 
 - [bug] IOC travou. reiniciamos salvando logs de stdout e stderr.
-  provavelmente exception em python. (entendido!)
+  provavelmente exception em python. **eduardo**: *a 'placa-mãe' com controlador da serial deixou de funcionar após queda de energia e o programa IOC não returnada do comando de inicialização da serial, ficando travado.*
 - [bug] o WfmIndex nos controladores estava parado em um valor arbitrário. pq?
-  será que interrompemos o sincronismo pelo EVR ao invés do EVG ? (entendido!)
-- [bug?] ao iniciar o BBB lê o valor 2001 do WfmIndex do controlador.
-  após conclusão da rampa com sucesso este valor passar a ser 2000. pq da diferença?
-- [bug] firmware do controlador não zera WfmIndex durante boot?
+  será que interrompemos o sincronismo pelo EVR ao invés do EVG ? (entendido!) **gabriel**: *irá corrigir/rever na próxima versão de firmware*
+- [bug?] ao iniciar o BBB lê o valor 2001 do WfmIndex do controlador. após conclusão da rampa com sucesso este valor passar a ser 2000. pq da diferença? **gabriel**: *não pe bug. é consequência do algoritmo de rampa atual.*
+- [bug] firmware do controlador não zera WfmIndex durante boot? **gabriel**: *irá corrigir/rever na próxima versão de firmware*
   IOC não deveria ajustar estado do controlador durante o boot.
 - [bug] Current-SP e Current-RB, quando escolhido SlowRef após MigWfm ou
-  RmpWfm deveria espelhar o CurrentRef-Mon. Mudar spec das PVs.
+  RmpWfm deveria espelhar o CurrentRef-Mon. Mudar spec das PVs. **ximenes**: *será atualizado.*
 - enviamos ao IOC/controlador as rampas de acordo com a spec e implementadas em
   siriuspy.magnet.util
 - criei repositorio ps-tests no lnls-sirius.
