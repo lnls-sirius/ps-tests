@@ -15,7 +15,7 @@
 
 # 2017-09-22
 
-## REPETIBILIDADE DAS medidas
+## REPETIBILIDADE DAS MEDIDAS
 -----------------------------
 
 > dados: data/test2_17-09-19_1501.txt
@@ -23,6 +23,9 @@
 > dados: data/test3_17-09-19_1502.txt
 
 > script: [analysis.ipynb](analysis/2017-09-20/analysis.ipynb)
+
+- repetimos as análises de 2017-09-20 para os dados 'teste1' para os dados referêntes aos dados de 'test2' e 'test3', que foram obtidos minutos após os dados do primeiro teste.
+- os resultados se mostraram muito parecidos aos do teste1. a repetibilidade está dentro das variações observadas entre rampas e fontes já do teste1.
 
 
 # 2017-09-20
