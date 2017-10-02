@@ -15,8 +15,7 @@ _sync_sig_idx = None
 _sync_sig_level = 5.0
 _max_current = 10.0  # [A]
 _ref_current_3gev = _max_current/1.05  # [A]
-_ref_ramp = _ref_current_3gev * generate_normalized_ramp()
-
+_ref_ramp = _ref_current_3gev * generate_normalized_ramp(nrpts=2000)
 
 # curve1 = []
 # for i in range(1000):
