@@ -32,7 +32,7 @@ Os parâmetros PI do controlador da fonte foram alterados de ??? (heitor?) para:
 <code>I = 73.304</code> (unidades, heitor?)
 
 e três novas aquisições de rampa foram realizadas e analisadas. As análises foram  feitas analogamenente àquelas dos dados do dia 2017-09-20. Em resumo houve a seguinte melhora:
-* em escala rápida, na região de interesse rampa onde o feixe é acelerado de 150 MeV a 3 GeV, o erro de não linearidade que era de '''+/- 200 ppm''' caiu para '''+/ 135 um'''. (ver [Figure_6.png](analysis/2017-09-20/Figure_6.png) de antes e [Figure_6.png](analysis/2017-09-27/test4/Figure_6.png) com novos valores de PI)
+* em escala rápida, na região de interesse rampa onde o feixe é acelerado de 150 MeV a 3 GeV, o erro de não linearidade que era de ''+/- 200 ppm'' caiu para ''+/ 135 um''. (ver [Figure_6.png](analysis/2017-09-20/Figure_6.png) de antes e [Figure_6.png](analysis/2017-09-27/test4/Figure_6.png) com novos valores de PI)
 
 - Figuras:
 * [Figure_1.png](analysis/2017-09-27/test4/Figure_1.png)
