@@ -32,18 +32,18 @@ Os parâmetros PI do controlador da fonte foram alterados de ??? (heitor?) para:
 <code>I = 73.304</code> (unidades, heitor?)
 
 e três novas aquisições de rampa foram realizadas e analisadas. As análises foram  feitas analogamenente àquelas dos dados do dia 2017-09-20. Em resumo houve a seguinte melhora:
-* o erro em escala rápida de não linearidade da rampa na região de interesse com o feixe [Figure_6.png](analysis/2017-09-27/Figure_6.png), que era de +/- 200 ppm caiu para +/ 135 um.
+* em escala rápida, na região de interesse rampa onde o feixe é acelerado de 150 MeV a 3 GeV, o erro de não linearidade que era de '''+/- 200 ppm''' caiu para '''+/ 135 um'''. (ver [Figure_6.png](analysis/2017-09-20/Figure_6.png) de antes e [Figure_6.png](analysis/2017-09-27/test4/Figure_6.png) com novos valores de PI)
 
 - Figuras:
-* [Figure_1.png](analysis/2017-09-27/Figure_1.png)
-* [Figure_2.png](analysis/2017-09-27/Figure_2.png)
-* [Figure_3.png](analysis/2017-09-27/Figure_3.png)
-* [Figure_4.png](analysis/2017-09-27/Figure_4.png)
-* [Figure_5.png](analysis/2017-09-27/Figure_5.png)
-* [Figure_6.png](analysis/2017-09-27/Figure_6.png)
-* [Figure_7.png](analysis/2017-09-27/Figure_4.png)
-* [Figure_8.png](analysis/2017-09-27/Figure_5.png)
-* [Figure_9.png](analysis/2017-09-27/Figure_6.png)
+* [Figure_1.png](analysis/2017-09-27/test4/Figure_1.png)
+* [Figure_2.png](analysis/2017-09-27/test4/Figure_2.png)
+* [Figure_3.png](analysis/2017-09-27/test4/Figure_3.png)
+* [Figure_4.png](analysis/2017-09-27/test4/Figure_4.png)
+* [Figure_5.png](analysis/2017-09-27/test4/Figure_5.png)
+* [Figure_6.png](analysis/2017-09-27/test4/Figure_6.png)
+* [Figure_7.png](analysis/2017-09-27/test4/Figure_4.png)
+* [Figure_8.png](analysis/2017-09-27/test4/Figure_5.png)
+* [Figure_9.png](analysis/2017-09-27/test4/Figure_6.png)
 
 
 # 2017-09-22 - REPETIBILIDADE DAS MEDIDAS
