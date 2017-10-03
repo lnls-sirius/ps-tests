@@ -39,13 +39,21 @@ e três novas aquisições de rampa foram realizadas e analisadas. As análises 
 
 - Figuras:
 >  [Figure_1.png](analysis/2017-09-27/test4/Figure_1.png)
+
 >  [Figure_2.png](analysis/2017-09-27/test4/Figure_2.png)
+
 >  [Figure_3.png](analysis/2017-09-27/test4/Figure_3.png)
+
 >  [Figure_4.png](analysis/2017-09-27/test4/Figure_4.png)
+
 >  [Figure_5.png](analysis/2017-09-27/test4/Figure_5.png)
+
 >  [Figure_6.png](analysis/2017-09-27/test4/Figure_6.png)
+
 >  [Figure_7.png](analysis/2017-09-27/test4/Figure_4.png)
+
 >  [Figure_8.png](analysis/2017-09-27/test4/Figure_5.png)
+
 >  [Figure_9.png](analysis/2017-09-27/test4/Figure_6.png)
 
 
