@@ -13,6 +13,39 @@
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 
 
+# 2017-09-27 - REPETIBILIDADE DAS MEDIDAS
+
+> dados: data/test5_17-09-27_1442.txt
+
+> dados: data/test6_17-09-27_1442.txt
+
+
+# 2017-09-27 - REPETIBILIDADE DA RAMPA
+
+> dados: data/test4_17-09-27_1441.txt
+
+> script: [analysis.ipynb](analysis/2017-09-27/analysis.ipynb)
+
+Os parâmetros PI do controlador da fonte foram alterados de ??? (heitor?) para:
+
+<code>P = 3.56</code> (unidades, heitor?)
+<code>I = 73.304</code> (unidades, heitor?)
+
+e três novas aquisições de rampa foram realizadas e analisadas. As análises foram  feitas analogamenente àquelas dos dados do dia 2017-09-20. Em resumo houve a seguinte melhora:
+* o erro em escala rápida de não linearidade da rampa na região de interesse com o feixe [Figure_6.png](analysis/2017-09-27/Figure_6.png), que era de +/- 200 ppm caiu para +/ 135 um.
+
+- Figuras:
+* [Figure_1.png](analysis/2017-09-27/Figure_1.png)
+* [Figure_2.png](analysis/2017-09-27/Figure_2.png)
+* [Figure_3.png](analysis/2017-09-27/Figure_3.png)
+* [Figure_4.png](analysis/2017-09-27/Figure_4.png)
+* [Figure_5.png](analysis/2017-09-27/Figure_5.png)
+* [Figure_6.png](analysis/2017-09-27/Figure_6.png)
+* [Figure_7.png](analysis/2017-09-27/Figure_4.png)
+* [Figure_8.png](analysis/2017-09-27/Figure_5.png)
+* [Figure_9.png](analysis/2017-09-27/Figure_6.png)
+
+
 # 2017-09-22 - REPETIBILIDADE DAS MEDIDAS
 
 > dados: data/test2_17-09-19_1501.txt
