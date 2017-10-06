@@ -13,6 +13,18 @@
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 
 
+# 2017-10-06 - TESTE NOVO FIRMWARE FONTES
+
+Uma versão inicial do novo firmware foi testado. Nesta versão um comando de setpoint envia automaticamente setpoints para todas as fontes do bastidor.
+
+> dados: data/test7_17-10-06_1055
+
+
+# 2017-09-29 - TESTE ENVIO RAMPA COM 4K PONTOS
+
+> dados: data/test_4k.txt
+
+
 # 2017-09-27 - REPETIBILIDADE DAS MEDIDAS
 
 > dados: data/test5_17-09-27_1442.txt
