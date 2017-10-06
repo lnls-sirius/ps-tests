@@ -11,6 +11,7 @@
   cd iocBoot/ioctiming/; ./st.cmd
 - IOC das fontes é iniciado automaticamente com o BBB (root@10.0.21.89)
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
+- os dados brutos se enontram lnls449-linux:/home/fac_files/lnls-sirius/ps-tests/data/
 
 
 # 2017-10-06 - TESTE NOVO FIRMWARE FONTES
