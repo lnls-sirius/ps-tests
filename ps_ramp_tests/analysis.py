@@ -6,7 +6,7 @@ import os as _os
 import numpy as _np
 import matplotlib.pyplot as _plt
 from pathlib import Path as _Path
-from siriuspy.magnet.util import generate_normalized_ramp
+from siriuspy.magnet.util import get_default_ramp_waveform
 
 
 _fname = _os.path.join(str(_Path.home()), 'troca', 'teste2_17-09-12_1544.txt')
@@ -15,7 +15,7 @@ _sync_sig_idx = None
 _sync_sig_level = 5.0
 _max_current = 10.0  # [A]
 _ref_current_3gev = _max_current/1.05  # [A]
-_ref_ramp = _ref_current_3gev * generate_normalized_ramp(nrpts=2000)
+_ref_ramp = _ref_current_3gev * get_default_ramp_waveform(nrpts=2000)
 
 # curve1 = []
 # for i in range(1000):

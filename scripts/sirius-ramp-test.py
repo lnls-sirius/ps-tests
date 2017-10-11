@@ -7,11 +7,11 @@ import time
 import sys
 from epics import caput, caget
 import matplotlib.pyplot as plt
-from siriuspy.magnet.util import generate_normalized_ramp
+from siriuspy.magnet.util import get_default_ramp_waveform
 
 max_current = 10.0  # [A]
 ref_current_3gev = max_current/1.05  # [A]
-ramp = ref_current_3gev * generate_normalized_ramp()
+ramp = ref_current_3gev * get_default_ramp_waveform()
 curve1 = ramp
 
 pvs = {'ti_stop':      'AS-Inj:TI-EVG1:STOPSEQ',
