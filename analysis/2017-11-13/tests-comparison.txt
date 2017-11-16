@@ -1,0 +1,15 @@
+
+test01  246 129   - setup original (3 fontes)
+test02: 261 128   - setup original (3 fontes)
+test03: 227 128   - setup original (3 fontes)
+
+test04: 201 70    - PI do controlador alterado (3 fontes)
+test05: 196 70    - PI do controlador alterado (3 fontes)
+test06: 196 70    - PI do controlador alterado (3 fontes)
+
+test07: 124 35    - Primeiro teste com novo firmware (IOC controla rampa)
+
+test08: 109 31    - Testes após correção de perdas de pontos rampa (corretoras 1 e 2)
+test09: 112 31    - Testes após correção de perdas de pontos rampa (corretoras 1 e 2)
+test10: 109 29    - Testes após correção de perdas de pontos rampa (corretoras 3 e 4)
+test11: 107 29    - Testes após correção de perdas de pontos rampa (corretoras 3 e 4)

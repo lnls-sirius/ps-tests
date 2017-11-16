@@ -14,6 +14,58 @@
 - os dados brutos se enontram lnls449-linux:/home/fac_files/lnls-sirius/ps-tests/data/
 
 
+# 2017-11-13 - TESTES TRACKING
+
+> dados: test8_17-11-13_1005.txt
+> dados: test9_17-11-13_1006.txt
+> dados: test10_17-11-13_1037.txt
+> dados: test11_17-11-13_1038.txt
+
+> script: [run_analysis.py](analysis/run_analysis.py)
+
+Após exaustivos testes de perda de pontos da ramp fizemos mais uma digitalização do sinal de rampa das corretoras 3 e 4. O firmware dos controladores das fontes não se alterou. O software de comunicação do BBB com as fontes é um software temporário que não implementa servidor EPICS.
+
+Primeiramente fizemos testes digitalizando apenas as correntes das fontes  3 e 4 (test8 e test9) e, depois, com as fontes 1 e 2 (test10 e test11).
+
+A tabela abaixo compara o erro de tracking residual destes últimos quatro testes com os anteriores. O erro de tracking foi calculado no intervalo de ramp que corresponden ao intervalo com feixe. A corrente de cada fonte, em cada umas das 19 rampas, foi subtraída da reta mediana e expressa em unidades de ppm. Além disto foi subtraído um error lento ao longo da rampa através de fitting the uma polinômio de grau 3. Este erro lento pode ser corrigido alterando as waveforms das fontes.
+
+TESTE  | Erro Max | Erro Std | Observação
+------ | -------- | -------- | -----------------------------------------------------------------
+test01 | 246      | 129      | setup original (3 fontes)
+test02 | 261      | 128      | setup original (3 fontes)
+test03 | 227      | 128      | setup original (3 fontes)
+------ | -------- | -------- | -----------------------------------------------------------------
+test04 | 201      | 70       | PI do controlador alterado (3 fontes)
+test05 | 196      | 70       | PI do controlador alterado (3 fontes)
+test06 | 196      | 70       | PI do controlador alterado (3 fontes)
+------ | -------- | -------- | -----------------------------------------------------------------
+test07 | 124      | 35       | Primeiro teste com novo firmware (IOC controla rampa)
+------ | -------- | -------- | -----------------------------------------------------------------
+test08 | 109      | 31       | Testes após correção de perdas de pontos rampa (corretoras 1 e 2)
+test09 | 112      | 31       | Testes após correção de perdas de pontos rampa (corretoras 1 e 2)
+test10 | 109      | 29       | Testes após correção de perdas de pontos rampa (corretoras 3 e 4)
+test11 | 107      | 29       | Testes após correção de perdas de pontos rampa (corretoras 3 e 4)
+------ | -------- | -------- | -----------------------------------------------------------------
+
+As figuras correspondentes são:
+
+* [test01.png](analysis/2017-11-13/test01.png)
+* [test02.png](analysis/2017-11-13/test02.png)
+* [test03.png](analysis/2017-11-13/test03.png)
+* [test04.png](analysis/2017-11-13/test04.png)
+* [test05.png](analysis/2017-11-13/test05.png)
+* [test06.png](analysis/2017-11-13/test06.png)
+* [test07.png](analysis/2017-11-13/test07.png)
+* [test08.png](analysis/2017-11-13/test08.png)
+* [test09.png](analysis/2017-11-13/test09.png)
+* [test10.png](analysis/2017-11-13/test10.png)
+* [test11.png](analysis/2017-11-13/test11.png)
+
+
+# 2017-11-13 - TESTES PERDA DE PONTOS DE RAMPA
+
+Agora a cada sinal de sincronismo interceptado pelo BBB o IOC ajusta os setpoints das 4 fontes no bastidor. Agora serão 4000 pontos de ramp em 0.5s, ou uma taxa de 8kHz. Inicialmente aconteciam perdas de pontos da rampa após a nova versão do software. Testes de 235h10m apresentaram 71 falhas (0.01 ppm ou 0.3 falha/hora). Descubriu-se um erro na programação da serial que foi corrigido. Após correção nenhuma falha de ramp foi observada em 166h50m de testes.
+
 # 2017-10-06 - TESTE NOVO FIRMWARE FONTES
 
 Uma versão inicial do novo firmware foi testado. Nesta versão um comando de setpoint envia automaticamente setpoints para todas as fontes do bastidor.
