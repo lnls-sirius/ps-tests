@@ -61,6 +61,13 @@ As figuras correspondentes são:
 * [test10.png](analysis/2017-11-13/test10.png)
 * [test11.png](analysis/2017-11-13/test11.png)
 
+Situação atual:
+
+* No novo esquema das fontes o BBB irá comandar a rampa, enviando pela serial os setpoint das 4 fontes, a cada passo recebido do sincronismo.
+* Nos primeiros testes com o novo esquema foi detectada perda de pontos de rampa. Aparentemente existia um bug do código enviava dados pela serial. As stats eram as seguintes (Patricia): 71 falhas em 235h10min de testes: 0.01ppm ou 0.3 falha/hora. Após a correção do bug: 0 falhas em 166h50min de testes.
+* No momento o firmware rodando nos controladores das fontes é temporário. Também o software de comunicação do BBB com os controladores pela serial é temporário e não responde à rede EPICS.
+* O erro de tracking linear caiu de ~130 ppm (std) para 30 ppm, no novo esquema com 4000 pontos.
+
 
 # 2017-11-13 - TESTES PERDA DE PONTOS DE RAMPA
 
