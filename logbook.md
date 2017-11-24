@@ -22,6 +22,10 @@ programado.
 
 programado.
 
+Foi gerado o gráfico comparando um trecho da rampa up de aquisição com a versão original do setup (data/test1_17-09-19_1459.txt) com dados da versão atual (data/test8_17-11-13_1005.txt):
+
+ [ramp_comparison.png](analysis/2017-11-24/ramp_comparison.png)
+
 # 2017-11-13 - TESTES TRACKING
 
 > dados: test8_17-11-13_1005.txt
