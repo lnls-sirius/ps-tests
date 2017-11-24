@@ -35,7 +35,7 @@ class MyApp(QMainWindow):
         self.rbtn1 = QRadioButton("1")
         self.rbtn2 = QRadioButton("2")
         self.rbtn3 = QRadioButton("3")
-        self.rbtn3.setChecked(True)
+        self.rbtn2.setChecked(True)
         self.rblayout.addWidget(self.rbtn1)
         self.rblayout.addWidget(self.rbtn2)
         self.rblayout.addWidget(self.rbtn3)

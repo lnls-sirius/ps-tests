@@ -9,7 +9,6 @@ from pathlib import Path as _Path
 from siriuspy.magnet.util import get_default_ramp_waveform
 
 
-_fname = _os.path.join(str(_Path.home()), 'troca', 'teste2_17-09-12_1544.txt')
 _sample_rate = 50*1000  # [Hz]
 _sync_sig_idx = None
 _sync_sig_level = 5.0
@@ -52,8 +51,6 @@ def get_reference_ramp():
 def read_data(fname=None, print_flag=True):
     """Read data from file."""
     global _sync_sig_idx
-    if fname is None:
-        fname = _fname
     data = _np.loadtxt(fname, dtype=float, delimiter='\t')
     get_sync_signal_index(data)
     if print_flag:
@@ -203,7 +200,11 @@ def make_analysis(fname, nr_signals=3, nrpts=4000):
     set_ref_ramp(nrpts)
     # get data
     data = read_data(fname=fname)
-    # a.plot_data(data)
+    # plot_data(data)
+    # _plt.plot(data[:,0])
+    # _plt.xlabel('Ramp Index')
+    # _plt.ylabel('Current [A]')
+    # _plt.show()
     data = add_sync_upborder(data)
     ramp_idx = get_split_ramps_indices(data)
     ramps = split_ramps(data, ramp_idx)

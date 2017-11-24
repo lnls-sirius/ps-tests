@@ -14,6 +14,14 @@
 - os dados brutos se enontram lnls449-linux:/home/fac_files/lnls-sirius/ps-tests/data/
 
 
+# 2017-11-28 - ENTREGA VERSÂO IOC PARA TESTES DO FIRWARE DOS CONTROLADORES DAS FONTES
+
+programado.
+
+# 2017-11-24 - ENTREGA PRIMEIRA VERSÃO DO FIRMWARE DOS CONTROLADORES DAS FONTES
+
+programado.
+
 # 2017-11-13 - TESTES TRACKING
 
 > dados: test8_17-11-13_1005.txt
