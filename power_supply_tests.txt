@@ -120,20 +120,19 @@ Programação de testes do controle e qualidade das fontes
 			- digitalizar sinais de correntes entre fontes em BBBs/bastidores distintos e analisar sincronismo entre os sinais.
 
 
-
-
-
-
-
-
-
-
-
-5. Condicionamento de Rampa dos Dipolos
-
-	. discutir
-
-
 5. Fontes dos Pulsados.
 
-	. Decidir com CON como o IOC será escrito. (ximenes, eduardo)
+	a. Decidir com CON como o IOC será escrito. (ximenes, guilherme, eduardo)
+
+	  pessoal: ximenes, guilherme, eduardo
+	  duração: 1 dia
+	  início:  12/04/2018
+
+
+6. Condicionamento de Rampa dos Dipolos
+
+	a. Discutir como será implementada
+
+		pessoal: ximenes, guilherme, eduardo
+		duração: 1 dia
+		início:  ??
