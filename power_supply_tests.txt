@@ -1,0 +1,103 @@
+Programação de testes do controle e qualidade das fontes
+========================================================
+
+
+1 Código da PRU
+
+	a. Atualização do firmware da PRU:
+		    pessoal: ximenes, patrícia
+		    duração: 1 dia
+				início:  12/04/2018
+				atividades:
+				  - instalação do novo firmware da PRU que está disponível (patricia, ximenes).
+					- obs: atualmente a mudança acontece a qualquer instante. ela ficou de estudar uma mudança no código de forma a usar a nova waveform apenas após o término da antiga (patrica).
+					- obs: a patricia irá investigar a questão do tempo que leva para que, depois de um ajuste de waveform na PRU, a nova rampa já esteja de fato disponível para ser usada (patricia).
+
+
+2 Código do IOC
+
+	a. Implementar modo Cycle:
+	      pessoal: ximenes, guilherme
+	      duração: 2 dias
+				início:  13/04/2018
+				atividades:
+					- finalizar implementação do trigger pelo sincronismo
+					- após o término do ciclagem pelo controlador da fonte, interceptar mudança da variável siggen_enable e atualizar modo da fonte no IOC.
+			    - durante ciclagens, rampas e migrações, recusar comandos de ajuste no IOC, a menos do Abort-Cmd.
+
+	b. Implementar modo RmpWfm|MigWfm:
+	      pessoal: ximenes, guilherme
+	      duração: 2 dias
+				início:  15/04/2018
+				atividades:
+					- firmware das fontes já aceita mudar o 'ps_status' para estes modos? consultar gabriel...
+					- implementar mudança de waveform pela PRU já usando a nova biblioteca
+
+	c. Implementar modo SlowRefSync:
+	      pessoal: ximenes, guilherme
+	      duração: 1 dias
+				início:  17/04/2018
+				atividades:
+					- adaptar a implementação dos waveforms do IOC para o modo SlowRefSync
+
+	d. Testes de integração dos módulos:
+		    pessoal: ximenes, guilherme
+		    duração: 3 dias
+				início:  18/04/2018
+				atividades:
+					- verificar se comportamento da fonte é o esperado durante mudanças de estado da fonte (OpMode e PwrState)
+
+
+3. Testes básicos na Bancada
+
+	a. Preparar janelas de controle do timing no laptop da bancada
+			pessoal: joão
+			duração: 1 dia
+			início:  12/04/2018
+			atividades:
+				- Instalar IOCs de baixo nível do Timing, instalar CS-Studio e janelas do timing
+
+	b. Testar modo de ciclagem com sinal de trigger do sincronismo
+			pessoal: ximenes, guilherme, eduardo
+			duração: 3 dias
+			início:  21/04/2018
+			atividades:
+				-
+
+	c. Testar modo de ciclagem com sinal de trigger do sincronismo
+			pessoal: ximenes, guilherme, eduardo
+			duração: 3 dias
+			início:  21/04/2018
+
+
+
+
+
+
+	. Testar modo Rmp
+
+
+4. Testes de qualidade de Rampas
+
+	. Equipamentos
+		. Regis ficou de devolver o laptop com labview na próxima semana. Podemos emprestar do ELP também.
+
+	. Analisar sincronismo entre fontes.
+
+
+
+
+
+
+
+
+
+
+5. Condicionamento de Rampa dos Dipolos
+
+	. discutir
+
+
+5. Fontes dos Pulsados.
+
+	. Decidir com CON como o IOC será escrito. (ximenes, eduardo)
