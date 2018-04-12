@@ -138,29 +138,3 @@ Programação de testes do controle e qualidade das fontes
      pessoal: ximenes, guilherme, eduardo
      duração: 1 dia
      início:  03/05/2018
-
-
-
-Cronograma:
-
-    12/04: 1a, 3a, 5b
-    13/04: 2a
-    14/04: 2a
-    15/04: 2b
-    16/04: 2b
-    17/04: 2c
-    18/04: 2d
-    19/04: 2d
-    20/04: 2d
-    21/04: 3b
-    22/04: 3b
-    23/04: 3b
-    24/04: 3c
-    25/04: 3c
-    26/04: 3d
-    27/04: 4a
-    28/04: 4a
-    29/04: 4b
-    30/04: 4b
-    01/05: 4b
-    02/05: 6a
