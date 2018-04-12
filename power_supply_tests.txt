@@ -31,7 +31,7 @@ Programação de testes do controle e qualidade das fontes
      início:  12/04/2018
 
      atividades:
-       1- (OK) não aceitar CycleAuxParam com comprimentos menores que 4
+       1- (OK) aceitar setpoints de CycleAuxParam com comprimentos diferentes de 4
        2- colocar na classe BeagleBone loop de atualização das variáveis, tirando-o do IOC (assim temos acesso ao estado da PRU)
        3- implementar opção de inicializar o controlador da fonte pelo estado do IOC
        4- durante ciclagens, rampas e migrações, recusar comandos de ajuste no IOC, a menos do Abort-Cmd.
