@@ -2,49 +2,60 @@ Programação de testes do controle e qualidade das fontes
 ========================================================
 
 
-1 Código da PRU
+1 Remontagem da bancada de testes e atualização de códigos de controle
 
-  a. Atualização do firmware da PRU
+  a. Preparar janelas de controle do timing no laptop da bancada
 
-     pessoal: ximenes, patrícia
+     pessoal: joão, patrícia, guilherme
      duração: 1 dia
      início:  12/04/2018
 
      atividades:
-     - instalação do novo firmware da PRU que está disponível (patricia, ximenes).
-     - OBS: atualmente a mudança acontece a qualquer instante. ela ficou de estudar uma mudança no código de forma a usar a nova waveform apenas após o término da antiga (patrica).
-     - OBS: a patricia irá investigar a questão do tempo que leva para que, depois de um ajuste de waveform na PRU, a nova rampa já esteja de fato disponível para ser usada (patricia).
+       - (OK) trazer modúlos de timing à bancada de testes
+       - (OK) instalar EPICS e bibliotecas da FAC no laptop da bancada
+       - instalar IOCs de baixo nível do Timing
+       - instalar CS-Studio e janelas do timing
+       - reconectar módulos de timing que foram retornados à bancada
+       - instalação e testes com nova biblioteca da PRU (que permite mudança de rampa em vôo)
+
+     OB1: atualmente a mudança de rampa acontece no instante da solicitação.
+          a patricia ficou de estudar uma mudança no código de forma a usar a nova waveform apenas após o término da antiga.
+     OB2: a patricia irá investigar a questão do tempo que leva para que, depois de um ajuste de waveform na PRU, a nova rampa já esteja de fato disponível para ser usada.
 
 
 2 Código do IOC
 
-  a. Implementar modo Cycle
+  a. Implementar modos SlowRef & Cycle
 
      pessoal: ximenes, guilherme
      duração: 3 dias
      início:  13/04/2018
 
      atividades:
-       - implementar opção de inicializar o controlador da fonte pelo estatdo do IOC
-       - finalizar implementação do trigger pelo sincronismo
-       - após o término do ciclagem pelo controlador da fonte, interceptar mudança da variável siggen_enable e atualizar modo da fonte no IOC.
+       - não aceitar CycleAuxParam com comprimentos menores que 4
        - durante ciclagens, rampas e migrações, recusar comandos de ajuste no IOC, a menos do Abort-Cmd.
+       - finalizar implementação do trigger pelo sincronismo
+       - implementar opção de inicializar o controlador da fonte pelo estado do IOC
+       - após o término do ciclagem pelo controlador da fonte, interceptar mudança da variável siggen_enable e atualizar modo da fonte no IOC.
+       - colocar na classe BeagleBone loop de atualização das variáveis, tirando-o do IOC (assim temos acesso ao estado da PRU)
 
-  b. Implementar modo RmpWfm|MigWfm
+  b. Implementar modos RmpWfm & MigWfm
 
      pessoal: ximenes, guilherme
-     duração: 2 dias
+     duração: 4 dias
      início:  16/04/2018
 
      atividades:
        - implementar mudança de waveform pela PRU já usando a nova biblioteca
-       - OBS: firmware das fontes já aceita mudar o 'ps_status' para estes modos? consultar gabriel...
+       - implementar funcionalidade de várias waveforms.
+
+      OB1: firmware das fontes já aceita mudar o 'ps_status' para estes modos? consultar gabriel...
 
   c. Implementar modo SlowRefSync
 
      pessoal: ximenes, guilherme
      duração: 1 dias
-     início:  18/04/2018
+     início:  20/04/2018
 
      atividades:
        - adaptar a implementação dos waveforms do IOC para o modo SlowRefSync
@@ -54,7 +65,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, liu
      duração: 3 dias
-     início:  19/04/2018
+     início:  21/04/2018
 
      atividades:
        - verificar se comportamento da fonte é o esperado durante mudanças de estado da fonte (OpMode e PwrState)
@@ -62,20 +73,11 @@ Programação de testes do controle e qualidade das fontes
 
 3. Testes básicos de controle em Bancada
 
-  a. Preparar janelas de controle do timing no laptop da bancada
-
-     pessoal: joão
-     duração: 1 dia
-     início:  12/04/2018
-
-     atividades:
-       - instalar IOCs de baixo nível do Timing, instalar CS-Studio e janelas do timing
-
   b. Testar modo Cycle
 
      pessoal: ximenes, guilherme, eduardo
      duração: 3 dias
-     início:  22/04/2018
+     início:  24/04/2018
 
      atividades:
        - disparar modo usando trigger do sincronismo.
@@ -84,7 +86,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 2 dias
-     início:  25/04/2018
+     início:  27/04/2018
 
      atividades:
        - testar execução de rampa usando triger do sincronismo.
@@ -94,7 +96,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 1 dias
-     início:  27/04/2018
+     início:  29/04/2018
 
      atividades:
        - testar execução de rampa usando triger do sincronismo.
@@ -107,7 +109,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, gabriel, liu
      duração: 2 dias
-     início:  28/04/2018
+     início:  30/04/2018
 
      atividades:
        - fazer aquisição durante a rampa e analiser erro de tracking
@@ -116,7 +118,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 3 dias
-     início:  30/04/2018
+     início:  02/05/2018
 
      atividades:
        - digitalizar sinais de correntes entre fontes em BBBs/bastidores distintos e analisar sincronismo entre os sinais.
@@ -128,7 +130,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 1 dia
-     início:  12/04/2018
+     início:  13/04/2018
 
 
 6. Condicionamento de Rampa dos Dipolos
@@ -137,4 +139,4 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 1 dia
-     início:  03/05/2018
+     início:  05/05/2018
