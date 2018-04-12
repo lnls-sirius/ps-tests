@@ -21,10 +21,11 @@ Programação de testes do controle e qualidade das fontes
   a. Implementar modo Cycle
 
      pessoal: ximenes, guilherme
-     duração: 2 dias
+     duração: 3 dias
      início:  13/04/2018
 
      atividades:
+       - implementar opção de inicializar o controlador da fonte pelo estatdo do IOC
        - finalizar implementação do trigger pelo sincronismo
        - após o término do ciclagem pelo controlador da fonte, interceptar mudança da variável siggen_enable e atualizar modo da fonte no IOC.
        - durante ciclagens, rampas e migrações, recusar comandos de ajuste no IOC, a menos do Abort-Cmd.
@@ -33,7 +34,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme
      duração: 2 dias
-     início:  15/04/2018
+     início:  16/04/2018
 
      atividades:
        - implementar mudança de waveform pela PRU já usando a nova biblioteca
@@ -43,16 +44,17 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme
      duração: 1 dias
-     início:  17/04/2018
+     início:  18/04/2018
 
      atividades:
        - adaptar a implementação dos waveforms do IOC para o modo SlowRefSync
+
 
   d. Testes de integração dos módulos
 
      pessoal: ximenes, guilherme, liu
      duração: 3 dias
-     início:  18/04/2018
+     início:  19/04/2018
 
      atividades:
        - verificar se comportamento da fonte é o esperado durante mudanças de estado da fonte (OpMode e PwrState)
@@ -73,7 +75,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 3 dias
-     início:  21/04/2018
+     início:  22/04/2018
 
      atividades:
        - disparar modo usando trigger do sincronismo.
@@ -82,7 +84,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 2 dias
-     início:  24/04/2018
+     início:  25/04/2018
 
      atividades:
        - testar execução de rampa usando triger do sincronismo.
@@ -92,7 +94,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 1 dias
-     início:  26/04/2018
+     início:  27/04/2018
 
      atividades:
        - testar execução de rampa usando triger do sincronismo.
@@ -105,7 +107,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, gabriel, liu
      duração: 2 dias
-     início:  27/04/2018
+     início:  28/04/2018
 
      atividades:
        - fazer aquisição durante a rampa e analiser erro de tracking
@@ -114,7 +116,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 3 dias
-     início:  29/04/2018
+     início:  30/04/2018
 
      atividades:
        - digitalizar sinais de correntes entre fontes em BBBs/bastidores distintos e analisar sincronismo entre os sinais.
@@ -135,7 +137,7 @@ Programação de testes do controle e qualidade das fontes
 
      pessoal: ximenes, guilherme, eduardo
      duração: 1 dia
-     início:  02/05/2018
+     início:  03/05/2018
 
 
 
