@@ -17,9 +17,10 @@ Programação de testes do controle e qualidade das fontes
        3- (OK) instalar IOCs de baixo nível do Timing
        4- (OK) instalar CS-Studio e janelas do timing
        5- (OK) reconectar módulos de timing que foram retornados à bancada
-       6- instalação e testes com nova biblioteca da PRU (que permite mudança de rampa em vôo)
-       7- confirmar que não há problemas de temporização após escrita de curva na PRU.
-
+       6- instalação da nova biblioteca da PRU (que permite mudança de rampa em vôo)
+       7- (OK) testes com nova biblioteca da PRU (que permite mudança de rampa em vôo)
+       8- confirmar que não há problemas de temporização após escrita de curva na PRU.
+       9- perguntar ao joão se é possível instalar o gerador de 60Hz para podermos gerar pulsos de 2Hz com intervalos mais regulares.
 
 2 Código do IOC
 
@@ -34,9 +35,8 @@ Programação de testes do controle e qualidade das fontes
        1- (OK) aceitar setpoints de CycleAuxParam com comprimentos diferentes de 4
        2- colocar na classe BeagleBone loop de atualização das variáveis, tirando-o do IOC (assim temos acesso ao estado da PRU)
        3- implementar opção de inicializar o controlador da fonte pelo estado do IOC
-       4- durante ciclagens, rampas e migrações, recusar comandos de ajuste no IOC, a menos do Abort-Cmd.
-       5- finalizar implementação do trigger pelo sincronismo
-       6- após o término do ciclagem pelo controlador da fonte, interceptar mudança da variável siggen_enable e atualizar modo da fonte no IOC para SlowRef.
+       4- finalizar implementação do trigger pelo sincronismo
+       5- após o término do ciclagem pelo controlador da fonte, interceptar mudança da variável siggen_enable e atualizar modo da fonte no IOC para SlowRef.
 
    b. Testes dos modos SlowRef & Cycle
 
@@ -145,7 +145,7 @@ Programação de testes do controle e qualidade das fontes
      duração: 1 dia
      início:  13/04/2018 (manhã)
 
-     - discutir o IOC que o pessoal do CON fez.
+     - (OK) discutir o IOC que o pessoal do CON.
 
 
 6. Condicionamento de Rampa dos Dipolos
