@@ -8,8 +8,10 @@ def run():
     pv = epics.PV('AS-Glob:TI-EVG:Evt01ExtTrig-Cmd')
     try:
         while True:
+            t0 = time.time()
             pv.value = 1
-            time.sleep(0.5)
+            time.sleep(0.500)
+            print((time.time()-t0)*1000)
     except KeyboardInterrupt:
         pass
 
