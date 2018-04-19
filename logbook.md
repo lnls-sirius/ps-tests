@@ -13,6 +13,11 @@
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 - os dados brutos se enontram lnls449-linux:/home/fac_files/lnls-sirius/ps-tests/data/
 
+Para rodar o IOC de Timing:
+
+- cd /home/fac_files/lnls-sirius/ps-tests/sinap-timing-epics-ioc/iocBoot/ioctiming/
+- ./runEVG.sh -i 10.0.21.97 -p 50118 -P AS-Glob:TI- -R EVG: -d EVG
+- ./runEVR.sh -i 10.0.21.96 -p 50114 -P AS-Glob:TI- -R EVR-1: -d EVR-1 
 
 # 2017-11-28 - ENTREGA VERSÂO IOC PARA TESTES DO FIRWARE DOS CONTROLADORES DAS FONTES
 
