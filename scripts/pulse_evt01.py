@@ -9,6 +9,7 @@ def configure_timing_modules(cycle=True):
     print('Configuring Timing Modules to ' + ('cycle' if cycle else 'ramp'))
     epics.caput('AS-Glob:TI-EVG:Evt01Mode-Sel', 'External')
     epics.caput('AS-Glob:TI-EVG:DevEnbl-Sel', 1)
+    epics.caput('AS-Glob:TU-EVG:RFDiv-SP', 4)
     epics.caput('AS-Glob:TI-EVR-1:DevEnbl-Sel', 1)
     epics.caput('AS-Glob:TI-EVR-1:OTP00Width-SP', 7000)
     epics.caput('AS-Glob:TI-EVR-1:OTP00State-Sel', 1)
