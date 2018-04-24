@@ -4,21 +4,22 @@ import time
 import epics
 import argparse as _argparse
 
+P = ''
 
 def configure_timing_modules(cycle=True):
     print('Configuring Timing Modules to ' + ('cycle' if cycle else 'ramp'))
-    epics.caput('AS-Glob:TI-EVG:Evt01Mode-Sel', 'External')
-    epics.caput('AS-Glob:TI-EVG:DevEnbl-Sel', 1)
-    epics.caput('AS-Glob:TU-EVG:RFDiv-SP', 4)
-    epics.caput('AS-Glob:TI-EVR-1:DevEnbl-Sel', 1)
-    epics.caput('AS-Glob:TI-EVR-1:OTP00Width-SP', 7000)
-    epics.caput('AS-Glob:TI-EVR-1:OTP00State-Sel', 1)
-    epics.caput('AS-Glob:TI-EVR-1:OTP00Evt-SP', 1)
-    epics.caput('AS-Glob:TI-EVR-1:OTP00Pulses-SP', 1 if cycle else 4000)
+    epics.caput(P+'AS-Glob:TI-EVG:Evt01Mode-Sel', 'External')
+    epics.caput(P+'AS-Glob:TI-EVG:DevEnbl-Sel', 1)
+    epics.caput(P+'AS-Glob:TU-EVG:RFDiv-SP', 4)
+    epics.caput(P+'AS-Glob:TI-EVR-1:DevEnbl-Sel', 1)
+    epics.caput(P+'AS-Glob:TI-EVR-1:OTP00Width-SP', 7000)
+    epics.caput(P+'AS-Glob:TI-EVR-1:OTP00State-Sel', 1)
+    epics.caput(P+'AS-Glob:TI-EVR-1:OTP00Evt-SP', 1)
+    epics.caput(P+'AS-Glob:TI-EVR-1:OTP00Pulses-SP', 1 if cycle else 4000)
 
 
 def run(n):
-    pv = epics.PV('AS-Glob:TI-EVG:Evt01ExtTrig-Cmd')
+    pv = epics.PV(P+'AS-Glob:TI-EVG:Evt01ExtTrig-Cmd')
     try:
         while True:
             t0 = time.time()
