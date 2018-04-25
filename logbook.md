@@ -11,10 +11,14 @@
 - os dados brutos se enontram lnls449-linux:/home/fac_files/lnls-sirius/ps-tests/data/
 
 Para rodar o IOC de Timing:
+- sudo systemctl start timing@EVG1.service
+- sudo systemctl start timing@EVR1.service
+- sudo systemctl start timing@EVE1.service
+- sudo systemctl start timing@FOUT1.service
 
-- cd /home/fac_files/lnls-sirius/sinap-timing-epics-ioc/iocBoot/ioctiming/
-- ./runEVG.sh -i 10.0.21.97 -p 50118 -P AS-Glob:TI- -R EVG: -d EVG
-- ./runEVR.sh -i 10.0.21.96 -p 50114 -P AS-Glob:TI- -R EVR-1: -d EVR-1 
+Para rodar a janela do timing no CS-Studio:
+- se você estiver logado/a no usuário fac, apenas digite lnls-csstudio no terminal.
+- se você estiver logado/a em outro usuário/a, importe o projeto /home/fac_files/lnls-sirius/sinap-timing-epics-ioc/op/opi no workspace. 
 
 # 2017-11-28 - ENTREGA VERSÂO IOC PARA TESTES DO FIRWARE DOS CONTROLADORES DAS FONTES
 

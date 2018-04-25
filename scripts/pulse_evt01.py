@@ -4,18 +4,26 @@ import time
 import epics
 import argparse as _argparse
 
-P = 'TEST-'
+P = 'T'
 
 def configure_timing_modules(cycle=True):
     print('Configuring Timing Modules to ' + ('cycle' if cycle else 'ramp'))
     epics.caput(P+'AS-Glob:TI-EVG:Evt01Mode-Sel', 'External')
+    time.sleep(0.1)
     epics.caput(P+'AS-Glob:TI-EVG:DevEnbl-Sel', 1)
+    time.sleep(0.1)
     epics.caput(P+'AS-Glob:TI-EVG:RFDiv-SP', 4)
+    time.sleep(0.1)
     epics.caput(P+'AS-Glob:TI-EVR-1:DevEnbl-Sel', 1)
+    time.sleep(0.1)
     epics.caput(P+'AS-Glob:TI-EVR-1:OTP08Width-SP', 7000)
+    time.sleep(0.1)
     epics.caput(P+'AS-Glob:TI-EVR-1:OTP08State-Sel', 1)
+    time.sleep(0.1)
     epics.caput(P+'AS-Glob:TI-EVR-1:OTP08Evt-SP', 1)
+    time.sleep(0.1)
     epics.caput(P+'AS-Glob:TI-EVR-1:OTP08Pulses-SP', 1 if cycle else 4000)
+    time.sleep(0.1)
 
 
 def run(n):
