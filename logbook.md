@@ -6,16 +6,13 @@
   um recurso samba do domínio. para montar:
   sudo mount -t cifs -o username=ximenes.resende //centaurus/Repositorio/Troca/testes_fontes_sirius /home/fac/troca/
 - o script de aquisição e análise é o 'lnls-ramp-test.py'
-- para rodar o IOC de timing:
-  cd /home/fac/Desktop/lnls105-controle/sirius-timing-ioc; make clean; make uninstall; make install
-  cd iocBoot/ioctiming/; ./st.cmd
 - IOC das fontes é iniciado automaticamente com o BBB (root@10.0.21.89)
 - o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
 - os dados brutos se enontram lnls449-linux:/home/fac_files/lnls-sirius/ps-tests/data/
 
 Para rodar o IOC de Timing:
 
-- cd /home/fac_files/lnls-sirius/ps-tests/sinap-timing-epics-ioc/iocBoot/ioctiming/
+- cd /home/fac_files/lnls-sirius/sinap-timing-epics-ioc/iocBoot/ioctiming/
 - ./runEVG.sh -i 10.0.21.97 -p 50118 -P AS-Glob:TI- -R EVG: -d EVG
 - ./runEVR.sh -i 10.0.21.96 -p 50114 -P AS-Glob:TI- -R EVR-1: -d EVR-1 
 
