@@ -23,6 +23,7 @@ setup(
     package_data={'ps_ramp_tests': ['VERSION']},
     scripts=['scripts/sirius-ramp-analysis.py',
              'scripts/sirius-ramp-test.py',
+             'scripts/pulse_evt01.py',
              ],
     zip_safe=False
 )
