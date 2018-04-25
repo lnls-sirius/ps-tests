@@ -4,7 +4,7 @@ import time
 import epics
 import argparse as _argparse
 
-P = ''
+P = 'TEST-'
 
 def configure_timing_modules(cycle=True):
     print('Configuring Timing Modules to ' + ('cycle' if cycle else 'ramp'))
