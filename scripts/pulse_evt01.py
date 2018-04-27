@@ -5,26 +5,31 @@ import epics
 import argparse as _argparse
 
 P = 'T'
+TIMEOUT = 0.1
+SLEEP = False
+WAIT = True
+WFMDATA_LENGTH = 4000
+
+def write_pv(pvname, value):
+    epics.caput(pvname, value, wait=WAIT)
+    if SLEEP:
+        time.sleep(TIMEOUT)
+
 
 def configure_timing_modules(cycle=True):
     print('Configuring Timing Modules to ' + ('cycle' if cycle else 'ramp'))
-    epics.caput(P+'AS-Glob:TI-EVG:Evt01Mode-Sel', 'External')
-    time.sleep(0.1)
-    epics.caput(P+'AS-Glob:TI-EVG:DevEnbl-Sel', 1)
-    time.sleep(0.1)
-    epics.caput(P+'AS-Glob:TI-EVG:RFDiv-SP', 4)
-    time.sleep(0.1)
-    epics.caput(P+'AS-Glob:TI-EVR-1:DevEnbl-Sel', 1)
-    time.sleep(0.1)
-    epics.caput(P+'AS-Glob:TI-EVR-1:OTP08Width-SP', 7000)
-    time.sleep(0.1)
-    epics.caput(P+'AS-Glob:TI-EVR-1:OTP08State-Sel', 1)
-    time.sleep(0.1)
-    epics.caput(P+'AS-Glob:TI-EVR-1:OTP08Evt-SP', 1)
-    time.sleep(0.1)
-    epics.caput(P+'AS-Glob:TI-EVR-1:OTP08Pulses-SP', 1 if cycle else 4000)
-    time.sleep(0.1)
-
+    write_pv(P+'AS-Glob:TI-EVG:Evt01Mode-Sel', 'External' if cycle else 'Continuous')
+    write_pv(P+'AS-Glob:TI-EVG:DevEnbl-Sel', 1)
+    write_pv(P+'AS-Glob:TI-EVG:ACDiv-SP', 30)
+    write_pv(P+'AS-Glob:TI-EVG:ACEnbl-Sel', 1)
+    write_pv(P+'AS-Glob:TI-EVG:ContinuousEvt-Sel', 1)
+    write_pv(P+'AS-Glob:TI-EVG:RFDiv-SP', 4)
+    write_pv(P+'AS-Glob:TI-EVR-1:DevEnbl-Sel', 1)
+    write_pv(P+'AS-Glob:TI-EVR-1:OTP08State-Sel', 1)
+    write_pv(P+'AS-Glob:TI-EVR-1:OTP08Width-SP', 7000)
+    write_pv(P+'AS-Glob:TI-EVR-1:OTP08Pulses-SP', 1 if cycle else 4000)
+    write_pv(P+'AS-Glob:TI-EVR-1:OTP08Evt-SP', 1)
+    write_pv(P+'AS-Glob:TI-EVR-1:OTP08Polarity-Sel', 0)
 
 def run(n):
     pv = epics.PV(P+'AS-Glob:TI-EVG:Evt01ExtTrig-Cmd')
