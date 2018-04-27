@@ -1,16 +1,27 @@
 # Logbook - Testes de Fontes do Sirius
 
+# Pendências
+
+- CON: Nova versão da biblioteca da PRU no repositório do lnls-sirius: a) leitura das curvas que estão na PRU. b) esperar final da rampa atual após troca de curav apenas se pointer <> 0
+- ELP: Modo DampedSine no gerador de sinais do controlador das fontes não está funcionando/implementado.
+- Em certas situações de teste o controlador das fontes trava. Não entendemos o porquê nem está bem claro em que situação isto acontece. ELP foi avisado.
+
+- Testar no osciloscópio a sincronicidade das ciclagens de fontes em BBB/bastidores distintos.
+- Refazer testes de rampa usando agora o código do IOC.
+- Refazer testes de roca de curva de rampa em vôo: a curva é troca apenas no final da anterior?
+- Testar modo MigWfm
+- Testar modo SlowRefSync (MigWfm com 1 ponto!)
+- Re-analisar qualidade do tracking linear dos DSPs durante a rampa.
+
+
+# Instruções
+
+Laptop lnls377-linux:
 - senha do usuário fac: a mesma que da sala de controle.
-- não fechar laptop de aquisição pelo labview! (se fechar, comunicar com gabriel)
-- os dados da aquisição deverão ser gravados no centaurus/Troce e acessados como
-  um recurso samba do domínio. para montar:
-  sudo mount -t cifs -o username=ximenes.resende //centaurus/Repositorio/Troca/testes_fontes_sirius /home/fac/troca/
-- o script de aquisição e análise é o 'lnls-ramp-test.py'
-- IOC das fontes é iniciado automaticamente com o BBB (root@10.0.21.89)
-- o script de aquisição e análise é o 'lnls-ramp-test.py', instalado no sistema.
-- os dados brutos se enontram lnls449-linux:/home/fac_files/lnls-sirius/ps-tests/data/
+- sudo mount -t cifs -o username=ximenes.resende //centaurus/Repositorio/Troca/testes_fontes_sirius /home/fac/troca/
 
 Para rodar o IOC de Timing:
+- verifique se eles já não estão rodando (caget TAS-Glob:TI-EVG:Evt01Mode-Sel, por exemplo)
 - sudo systemctl start timing@EVG1.service
 - sudo systemctl start timing@EVR1.service
 - sudo systemctl start timing@EVE1.service
@@ -18,7 +29,20 @@ Para rodar o IOC de Timing:
 
 Para rodar a janela do timing no CS-Studio:
 - se você estiver logado/a no usuário fac, apenas digite lnls-csstudio no terminal.
-- se você estiver logado/a em outro usuário/a, importe o projeto /home/fac_files/lnls-sirius/sinap-timing-epics-ioc/op/opi no workspace. 
+- se você estiver logado/a em outro usuário/a, importe o projeto /home/fac_files/lnls-sirius/sinap-timing-epics-ioc/op/opi no workspace.
+
+Para configurar e/ou pulsar sincronismo:
+- parar pulso:                /home/fac_files/lnls-sirius/ps-tests/scripts/pulse-evt01.py s
+- inicializar timing:         /home/fac_files/lnls-sirius/ps-tests/scripts/pulse-evt01.py i
+- preparar e pulsar ciclagem: /home/fac_files/lnls-sirius/ps-tests/scripts/pulse-evt01.py c
+- preparar ramp:              /home/fac_files/lnls-sirius/ps-tests/scripts/pulse-evt01.py r
+- imprimer PVs do timing:     /home/fac_files/lnls-sirius/ps-tests/scripts/pulse-evt01.py d
+
+# 2018-04-26 TESTES NO MODO RMPWFM
+
+o controlador das fontes do primeiro bastidor, aquele ligado pela serial ao beaglebone 10.0.21.119, deixou de responder a qualquer comando pela serial.
+depois de tentar reinstalar a biblioteca da PRU, enivar reset_intrelocks e reset_udc, todos falhos, desligamos a alimnetação do bastidro e religamos.
+o  controlador voltou a responder os comandos. ximenes enviou email ao gabriel em 2018-04-27 relatando o problema.
 
 # 2017-11-28 - ENTREGA VERSÂO IOC PARA TESTES DO FIRWARE DOS CONTROLADORES DAS FONTES
 
